@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
-{public static PlayerController instance;
+{
+    public static PlayerController instance;
     Rigidbody rb;
     [Header("Bool Var")]
     public bool isGround;
@@ -40,12 +42,12 @@ public class PlayerController : MonoBehaviour
         if (forward)
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(new Vector3 (0, jumpY, jumpZ),ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, jumpY, jumpZ), ForceMode.Impulse);
         }
         else
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(new Vector3(0, jumpY/2, -jumpZ),ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, jumpY / 2, -jumpZ), ForceMode.Impulse);
         }
     }
     public void SpinForward(bool forward = true)
@@ -54,6 +56,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
             rb.AddTorque(new Vector3(spinX, 0, 0), ForceMode.Acceleration);
+         
+            
+            
         }
         else
         {
@@ -61,4 +66,5 @@ public class PlayerController : MonoBehaviour
             rb.AddTorque(new Vector3(-spinX, 0, 0), ForceMode.Acceleration);
         }
     }
+    
 }
