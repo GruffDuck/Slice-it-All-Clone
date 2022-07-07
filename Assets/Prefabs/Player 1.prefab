@@ -191,8 +191,8 @@ Transform:
   m_GameObject: {fileID: 94609309496918229}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.18, z: -0.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 493891651481023783}
   - {fileID: 94609309292221115}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGround: 0
   jumpY: 3.5
-  jumpZ: 0.65
+  jumpZ: 0.75
   spinX: 200
 --- !u!1 &94609309533952918
 GameObject:
@@ -485,7 +485,7 @@ Transform:
   m_LocalRotation: {x: 0.002005995, y: 0.08736509, z: -0.016457198, w: 0.9960384}
   m_LocalPosition: {x: -0.471, y: -1.063, z: -0.256}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3407911317348055112}
   - {fileID: 4559840066663430405}

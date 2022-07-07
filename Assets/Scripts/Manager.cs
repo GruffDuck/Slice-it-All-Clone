@@ -9,7 +9,8 @@ public class Manager : MonoBehaviour
     public static Manager Instance;
     [Header("UI")]
     public TextMeshProUGUI scoreText;
-    public GameObject FinishPanel;
+    public GameObject finishPanel;
+    public GameObject deathPanel;
     [Header("FinishPanel Variables")]
     public TextMeshProUGUI lastScore;
     private void Awake()

@@ -8,7 +8,10 @@ public class DeathZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Handle")|| other.gameObject.CompareTag("SharpEdge"))
         {
-            other.GetComponentInParent<Rigidbody>().isKinematic = true;
+            other.GetComponentInParent<Rigidbody>().isKinematic = true; 
+            other.transform.parent.GetComponentInParent<PlayerController>().enabled = false;
+            other.transform.parent.GetComponentInParent<Rigidbody>().isKinematic = true;
+            Manager.Instance.deathPanel.SetActive(true);
         }
     }
 }
