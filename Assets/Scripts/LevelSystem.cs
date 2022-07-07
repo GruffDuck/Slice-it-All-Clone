@@ -17,7 +17,16 @@ public class LevelSystem : MonoBehaviour
     }
     public void LoadLevel()
     {
-        tempLevel=Instantiate(levels[levelIndex],transform.position,Quaternion.identity);
+        levelIndex = PlayerPrefs.GetInt("LevelIndex");
+        if (tempLevel == null)
+        {
+            tempLevel = Instantiate(levels[levelIndex], transform.position, Quaternion.identity);
+        }else
+        {
+            Destroy(tempLevel);
+            tempLevel = Instantiate(levels[levelIndex], transform.position, Quaternion.identity);
+        }
+       
     }
     public void SetLevel(int index)
     {

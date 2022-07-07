@@ -37,7 +37,8 @@ public class Slicable : MonoBehaviour
     }
     private IEnumerator ShowText()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f
+            );
         canvas.gameObject.SetActive(false);
     }
 

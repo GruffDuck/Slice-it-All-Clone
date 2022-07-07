@@ -10,8 +10,8 @@ public class DeathZone : MonoBehaviour
         {
             other.GetComponentInParent<Rigidbody>().isKinematic = true; 
             other.transform.parent.GetComponentInParent<PlayerController>().enabled = false;
-            other.transform.parent.GetComponentInParent<Rigidbody>().isKinematic = true;
             Manager.Instance.deathPanel.SetActive(true);
         }
     }
+    
 }
