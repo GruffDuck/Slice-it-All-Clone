@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 public class Manager : MonoBehaviour
 {
     public static Manager Instance;
@@ -17,5 +16,4 @@ public class Manager : MonoBehaviour
     {
         Instance=this;
     }
-
 }

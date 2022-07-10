@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
@@ -14,10 +12,14 @@ public class PlayerController : MonoBehaviour
     public float jumpZ;
     [Header("Spin Variables")]
     public float spinX;
+
+    private Vector3 knifeDir = ((Vector3.forward * 4) + (Vector3.down * 2)).normalized;
+    bool canStuck = true;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         instance = this;
+        rb.maxAngularVelocity = 10f;
     }
     void Update()
     {
@@ -27,6 +29,13 @@ public class PlayerController : MonoBehaviour
             Jump();
             SpinForward();
         }
+        //Býçaðýn yavaþlama noktasý
+        float knifeAngle = Vector3.Angle(knifeDir, transform.forward);
+        if (canStuck && knifeAngle < 35)
+        {
+            rb.maxAngularVelocity = 2f;
+        }
+        else rb.maxAngularVelocity = 10f;
     }
     private void FixedUpdate()
     {
@@ -54,11 +63,10 @@ public class PlayerController : MonoBehaviour
     {
         if (forward)
         {
+            canStuck = false;
             rb.angularVelocity = Vector3.zero;
             rb.AddTorque(new Vector3(spinX, 0, 0), ForceMode.Acceleration);
-         
-            
-            
+            Invoke("Stuck", 0.4f);
         }
         else
         {
@@ -66,5 +74,8 @@ public class PlayerController : MonoBehaviour
             rb.AddTorque(new Vector3(-spinX, 0, 0), ForceMode.Acceleration);
         }
     }
-    
+    private void Stuck()
+    {
+        canStuck = true;
+    }
 }

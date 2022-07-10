@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem instance;
@@ -10,8 +9,6 @@ public class LevelSystem : MonoBehaviour
     int levelIndex;
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
-        
         levelIndex = PlayerPrefs.GetInt("LevelIndex");
         LoadLevel();
     }
@@ -21,12 +18,12 @@ public class LevelSystem : MonoBehaviour
         if (tempLevel == null)
         {
             tempLevel = Instantiate(levels[levelIndex], transform.position, Quaternion.identity);
-        }else
+        }
+        else
         {
             Destroy(tempLevel);
             tempLevel = Instantiate(levels[levelIndex], transform.position, Quaternion.identity);
         }
-       
     }
     public void SetLevel(int index)
     {
@@ -43,6 +40,5 @@ public class LevelSystem : MonoBehaviour
             tempLevel = Instantiate(levels[index], transform.position, Quaternion.identity);
             PlayerPrefs.SetInt("LevelIndex", index);
         }
-        
     }
 }

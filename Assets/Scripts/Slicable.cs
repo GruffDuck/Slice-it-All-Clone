@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class Slicable : MonoBehaviour
 {
     public static Slicable instance;
      Rigidbody[] rb;
     private ParticleSystem particle;
     public int scoreCount;
-   
     Canvas canvas;
     private void Awake()
     {
@@ -19,21 +17,16 @@ public class Slicable : MonoBehaviour
         instance = this;
         canvas.GetComponentInChildren<TextMeshProUGUI>().text = "+" + scoreCount;
     }
-
     public void Slice()
-    {
+    {//kesme iþlemi
         foreach (var part in rb)
         {
-            
             part.isKinematic = false;
             part.AddForce(part.transform.localPosition.y * 10000f * Vector3.up);
             part.transform.parent.tag = "Untagged";
-
         }
         particle.Play();
         StartCoroutine(ShowText());
-        
-
     }
     private IEnumerator ShowText()
     {
@@ -41,5 +34,4 @@ public class Slicable : MonoBehaviour
             );
         canvas.gameObject.SetActive(false);
     }
-
 }

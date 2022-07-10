@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class FinishText : MonoBehaviour
 {
     TextMeshProUGUI scoreText;
@@ -33,6 +32,4 @@ public class FinishText : MonoBehaviour
                 break;
         }
     }
-
-
 }
